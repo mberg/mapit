@@ -119,7 +119,7 @@ Here are the basic instructions to install OS OpenData and ONSPD:
    # (You can run without --commit to do a dry run.)
    # first-gss in the above assumes the Boundary Line you're importing is
    # October 2010 or later, and uses the new GSS codes.
-   ./manage.py mapit_find_parents
+   ./manage.py mapit_UK_find_parents
    ./manage.py mapit_UK_import_codepoint ../data/Code-Point-Open/*.csv
    ./manage.py mapit_UK_scilly ../data/Code-Point-Open/tr.csv
    ./manage.py mapit_UK_import_nspd_ni_areas
@@ -137,7 +137,7 @@ When a new Code-Point is released, you should just be able to run mapit_UK_impor
 and mapit_UK_scilly; when new ONSPD is out, mapit_UK_import_nspd_ni if it's only postcodes that
 have changed, or mapit_UK_import_nspd_ni_areas first if boundary changes too (this is 
 incomplete, it doesn't use a control file like mapit_UK_import_boundary_line does); 
-when new Boundary-Line, mapit_UK_import_boundary_line and mapit_find_parents.
+when new Boundary-Line, mapit_UK_import_boundary_line and mapit_UK_find_parents.
 
 In May 2011, the Northern Ireland Assembly boundaries move to match the current
 Parliamentary boundaries - mapit_UK_import_nspd_ni_areas needs changing to cope with that,
@@ -239,13 +239,13 @@ You probably don't need any of that for your own install.
 # Create inactive generation.
 ./manage.py mapit_UK_import_boundary_line --control=mapit.controls.2009-10 `ls ../../data/Boundary-Line/2009-10/*.shp|grep -v high_water`
 ./manage.py mapit_UK_import_codepoint ../../data/Code-Point-Open-2010-05/*.csv
-./manage.py mapit_find_parents
+./manage.py mapit_UK_find_parents
 # Not importing NI here, as that only has the current boundaries.
 ./manage.py mapit_UK_scilly ../../data/Code-Point-Open-2010-05/tr.csv
 # Make generation active, add another inactive generation
 ./manage.py mapit_UK_import_boundary_line --control=mapit.controls.2010-05 `ls ../../data/Boundary-Line/2010-05/*.shp|grep -v high_water`
 # mapit_UK_import_codepoint not needed as it's the same and there's no P-in-P tests!
-./manage.py mapit_find_parents
+./manage.py mapit_UK_find_parents
 ./manage.py mapit_UK_scilly ../../data/Code-Point-Open-2010-05/tr.csv # I doubt the boundaries change! But updates the generation.
 ./manage.py mapit_UK_import_nspd ../../data/NSPD-2010-05.csv # This is now split into two scripts, see below.
 # Make generation active.
