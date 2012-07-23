@@ -1,0 +1,5 @@
+django
+PyYAML
+psycopg2
+BeautifulSoup
+South
