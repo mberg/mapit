@@ -44,11 +44,11 @@ use mapit from within your project like any normal Django app:
         - ``MAPIT_AREA_SRID`` - the SRID of your area data (if in doubt, set to
           ``4326``)
         - ``MAPIT_COUNTRY`` - used to supply country specific functions (such as 
-           postcode validation). If you look at the country files in 
-           ``mapit/countries/`` you can see how to add specialised 
-           country-specific functions.
+          postcode validation). If you look at the country files in 
+          ``mapit/countries/`` you can see how to add specialised 
+          country-specific functions.
         - ``MAPIT_RATE_LIMIT`` - a list of IP addresses or User Agents excluded 
-           from rate limiting
+          from rate limiting
     * Set up a path in your main ``urls.py`` to point at ``mapit.urls``.
     * run ``./manage.py syncdb`` and ``./manage.py migrate`` to ensure the db is 
       set up
