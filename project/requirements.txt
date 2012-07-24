@@ -1,5 +1,7 @@
-django
+python-memcached
+Django
 PyYAML
 psycopg2
 BeautifulSoup
 South
+GDAL
