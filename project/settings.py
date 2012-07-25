@@ -179,6 +179,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.gis',
+    'django.contrib.staticfiles',
     'south',
     'mapit',
 )
+
+STATIC_URL = '/static'
