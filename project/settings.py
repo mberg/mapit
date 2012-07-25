@@ -179,9 +179,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.gis',
-    'django.contrib.staticfiles',
+
     'south',
     'mapit',
 )
 
-STATIC_URL = '/static'
+# use staticfiles if Django recent enough. If not then trust that the webserver
+# can handle serving the content. mySociety currently runs mapit on Django 1.2.x
+# as that is the version in the Debian Squeeze package.
+if django.get_version() >= '1.3':
+    INSTALLED_APPS += ( 'django.contrib.staticfiles', )
+    STATIC_URL = '/static'
